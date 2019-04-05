@@ -9,6 +9,8 @@ import { StudiosForumsComponent } from './studios-forums/studios-forums.componen
 import { GamesForumsComponent } from './games-forums/games-forums.component';
 import { ForumDetailsComponent } from './forum-details/forum-details.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { TitleLogoComponent } from './title-logo/title-logo.component';
+import { OffTopicForumsComponent } from './off-topic-forums/off-topic-forums.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     StudiosForumsComponent,
     GamesForumsComponent,
     ForumDetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    TitleLogoComponent,
+    OffTopicForumsComponent
   ],
   imports: [
     BrowserModule,

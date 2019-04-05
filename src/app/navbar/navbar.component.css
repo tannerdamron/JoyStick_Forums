@@ -1,4 +1,10 @@
-/* Side Nav */
+/* Top Navbar */
+
+.navbar {
+  height: 50px;
+}
+
+/* Side Navbar */
 
 .sidenav {
   height: 100%;
@@ -43,23 +49,14 @@
   margin-left: 20px;
 }
 
-/* Search Button */
+/* Joystick Image & Text */
 
-input[type=text] {
-  width: 30px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-image: url("https://purepng.com/public/uploads/large/search-icon-lob.png");
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
+#joystickNav {
+  margin-left: 20px;
+  width: 40px;
+  height: 40px;
 }
 
-input[type=text]:focus {
-  width: 40%;
+#joystickNavText {
+  margin-top: 17px;
 }
