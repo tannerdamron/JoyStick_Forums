@@ -7,10 +7,28 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class UserForumsService {
   adminForums: FirebaseListObservable<any[]>;
   offTopicForums: FirebaseListObservable<any[]>;
+  generalForums: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
     this.adminForums = database.list('adminForums');
     this.offTopicForums = database.list('offTopicForums');
+    this.generalForums = database.list('generalForums');
+  }
+
+  getGeneralForums() {
+    return this.generalForums;
+  }
+
+  addToGeneralForums(newForum: UserForum) {
+    this.generalForums.push(newForum);
+  }
+
+  getUserForumBySubject(userForumSubject: string) {
+    // for (let i = 0; i <= USERFORUMS.length - 1; i++) {
+    //   if (USERFORUMS[i].subject === userForumSubject) {
+    //     return USERFORUMS[i];
+    //   }
+    // }
   }
 
   getOffTopicForums() {
@@ -22,11 +40,11 @@ export class UserForumsService {
   }
 
   getUserOffTopicForumBySubject(userGameForumSubject: string) {
-    for (let i = 0; i <= OFFTOPICFORUMS.length - 1; i++) {
-      if (OFFTOPICFORUMS[i].subject === userGameForumSubject) {
-        return OFFTOPICFORUMS[i];
-      }
-    }
+    // for (let i = 0; i <= OFFTOPICFORUMS.length - 1; i++) {
+    //   if (OFFTOPICFORUMS[i].subject === userGameForumSubject) {
+    //     return OFFTOPICFORUMS[i];
+    //   }
+    // }
   }
 
   getAdminForums() {
@@ -37,28 +55,16 @@ export class UserForumsService {
     this.adminForums.push(newForum);
   }
 
-  getUserForums() {
-    return USERFORUMS;
-  }
-
-  getUserForumBySubject(userForumSubject: string) {
-    for (let i = 0; i <= USERFORUMS.length - 1; i++) {
-      if (USERFORUMS[i].subject === userForumSubject) {
-        return USERFORUMS[i];
-      }
-    }
-  }
-
   getUserGameForums() {
     return USERGAMEFORUMS;
   }
 
   getUserGameForumBySubject(userGameForumSubject: string) {
-    for (let i = 0; i <= USERGAMEFORUMS.length - 1; i++) {
-      if (USERGAMEFORUMS[i].subject === userGameForumSubject) {
-        return USERGAMEFORUMS[i];
-      }
-    }
+    // for (let i = 0; i <= USERGAMEFORUMS.length - 1; i++) {
+    //   if (USERGAMEFORUMS[i].subject === userGameForumSubject) {
+    //     return USERGAMEFORUMS[i];
+    //   }
+    // }
   }
 
   getStudioForums() {
@@ -66,11 +72,11 @@ export class UserForumsService {
   }
 
   getUserStudioForumBySubject(userGameForumSubject: string) {
-    for (let i = 0; i <= STUDIOFORUMS.length - 1; i++) {
-      if (STUDIOFORUMS[i].subject === userGameForumSubject) {
-        return STUDIOFORUMS[i];
-      }
-    }
+    // for (let i = 0; i <= STUDIOFORUMS.length - 1; i++) {
+    //   if (STUDIOFORUMS[i].subject === userGameForumSubject) {
+    //     return STUDIOFORUMS[i];
+    //   }
+    // }
   }
 
 }

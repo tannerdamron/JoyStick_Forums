@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { UserForum } from '../models/user-forum.model';
 import { Router } from '@angular/router';
 import { UserForumsService } from '../user-forums.service';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-user-forum',
@@ -9,16 +10,37 @@ import { UserForumsService } from '../user-forums.service';
   styleUrls: ['./user-forum.component.css'],
   providers: [UserForumsService]
 })
-export class UserForumComponent implements OnInit {
-  forums: UserForum[];
+@Injectable()
 
-  constructor(private router: Router, private userForumService: UserForumsService) { }
+export class UserForumComponent implements OnInit {
+  generalForums: FirebaseListObservable<any[]>;
+  showAddForum = null;
+
+  constructor(private router: Router, private generalForumService: UserForumsService, private database: AngularFireDatabase) {
+    this.generalForums = database.list('generalForums');
+  }
 
   ngOnInit() {
-    this.forums = this.userForumService.getUserForums();
+    this.generalForums = this.generalForumService.getGeneralForums();
   }
 
   goToDetailPage(clickedForum: UserForum) {
     this.router.navigate(['forums', clickedForum.subject]);
+  }
+
+  addForum(title: string, subject: string, body: string) {
+    const currentTime = new Date();
+    const date = (currentTime.toString()).substr(0, 15);
+    const newForum = new UserForum(title, subject, body, date);
+    this.generalForumService.addToGeneralForums(newForum);
+    this.showAddForum = null;
+  }
+
+  showAddForumForm() {
+    this.showAddForum = true;
+  }
+
+  hideAddForumForm() {
+    this.showAddForum = null;
   }
 }
