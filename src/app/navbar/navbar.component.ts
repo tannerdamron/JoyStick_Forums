@@ -6,17 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  open = false;
   constructor() { }
 
   ngOnInit() {
   }
 
-  openNav() {
+  toggleNav() {
+    if (this.open === false) {
     document.getElementById('mySidenav').style.width = '250px';
-  }
-
-  closeNav() {
-    document.getElementById('mySidenav').style.width = '0';
+    this.open = true;
+    } else {
+      document.getElementById('mySidenav').style.width = '0';
+      this.open = false;
+    }
   }
 }

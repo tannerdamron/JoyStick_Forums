@@ -87,8 +87,8 @@
 }
 
 .bouncy{
-  animation:bouncy 5s infinite linear;
-  position:relative;
+  animation: bouncy 4s infinite linear;
+  position: relative;
 }
 @keyframes bouncy {
   0%{top:0em}
