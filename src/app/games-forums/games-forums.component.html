@@ -1,6 +1,6 @@
 <h1>Welcome to the game specific forums!</h1>
 
-<div *ngFor='let gameForum of gameForums' (click)="goToDetailPage(gameForum)">
+<div *ngFor='let gameForum of gameForums' (click)="goToGameSpecificDetailPage(gameForum)">
   <div class='panel-body'>
     <h3 class="routeClickable"><em>{{gameForum.title}}</em></h3>
   </div>

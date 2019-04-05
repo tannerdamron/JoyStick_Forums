@@ -11,6 +11,8 @@ import { ForumDetailsComponent } from './forum-details/forum-details.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TitleLogoComponent } from './title-logo/title-logo.component';
 import { OffTopicForumsComponent } from './off-topic-forums/off-topic-forums.component';
+import { GameSpecificForumsDetailsComponent } from './game-specific-forums-details/game-specific-forums-details.component';
+import { OffTopicForumsDetailsComponent } from './off-topic-forums-details/off-topic-forums-details.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { OffTopicForumsComponent } from './off-topic-forums/off-topic-forums.com
     ForumDetailsComponent,
     NavbarComponent,
     TitleLogoComponent,
-    OffTopicForumsComponent
+    OffTopicForumsComponent,
+    GameSpecificForumsDetailsComponent,
+    OffTopicForumsDetailsComponent
   ],
   imports: [
     BrowserModule,

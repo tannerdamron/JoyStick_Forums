@@ -15,10 +15,11 @@ export class GamesForumsComponent implements OnInit {
   constructor(private router: Router, private userGameForumsService: UserForumsService) {}
 
   ngOnInit() {
+    this.gameForums = this.userGameForumsService.getUserGameForums();
   }
 
 
-  goToDetailPage(clickedForum: UserForum) {
+  goToGameSpecificDetailPage(clickedForum: UserForum) {
     this.router.navigate(['gameForums', clickedForum.subject]);
   }
 }

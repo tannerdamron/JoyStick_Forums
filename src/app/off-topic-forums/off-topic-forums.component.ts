@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserForum } from '../models/user-forum.model';
 
 @Component({
   selector: 'app-off-topic-forums',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./off-topic-forums.component.css']
 })
 export class OffTopicForumsComponent implements OnInit {
-
+  offTopicForums: UserForum[] = [];
   constructor() { }
 
   ngOnInit() {

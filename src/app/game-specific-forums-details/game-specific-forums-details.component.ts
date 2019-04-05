@@ -5,12 +5,12 @@ import { UserForum } from '../models/user-forum.model';
 import { UserForumsService } from '../user-forums.service';
 
 @Component({
-  selector: 'app-forum-details',
-  templateUrl: './forum-details.component.html',
-  styleUrls: ['./forum-details.component.css'],
+  selector: 'app-game-specific-forums-details',
+  templateUrl: './game-specific-forums-details.component.html',
+  styleUrls: ['./game-specific-forums-details.component.css'],
   providers: [UserForumsService]
 })
-export class ForumDetailsComponent implements OnInit {
+export class GameSpecificForumsDetailsComponent implements OnInit {
   userForumSubject: string;
   userForumToDisplay: UserForum;
 
@@ -18,12 +18,13 @@ export class ForumDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private userForumsService: UserForumsService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
       this.userForumSubject = urlParameters['subject'];
-  });
-    this.userForumToDisplay = this.userForumsService.getUserForumBySubject(this.userForumSubject);
+    });
+    this.userForumToDisplay = this.userForumsService.getUserGameForumBySubject(this.userForumSubject);
   }
+
 }

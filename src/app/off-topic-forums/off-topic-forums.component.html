@@ -1,3 +1,7 @@
-<p>
-  off-topic-forums works!
-</p>
+<h1>Welcome to the Off Topic forums!</h1>
+
+<div *ngFor='let offTopicForum of offTopicForums' (click)="goToOffTopicDetailPage(offTopicForum)">
+  <div class='panel-body'>
+    <h3 class="routeClickable"><em>{{offTopicForum.title}}</em></h3>
+  </div>
+</div>

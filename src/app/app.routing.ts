@@ -5,6 +5,9 @@ import { GamesForumsComponent } from './games-forums/games-forums.component';
 import { StudiosForumsComponent } from './studios-forums/studios-forums.component';
 import { UserForumComponent } from './user-forum/user-forum.component';
 import { ForumDetailsComponent } from './forum-details/forum-details.component';
+import { GameSpecificForumsDetailsComponent } from './game-specific-forums-details/game-specific-forums-details.component';
+import { OffTopicForumsComponent } from './off-topic-forums/off-topic-forums.component';
+import { OffTopicForumsDetailsComponent } from './off-topic-forums-details/off-topic-forums-details.component';
 
 const appRoutes: Routes = [
   {
@@ -24,6 +27,10 @@ const appRoutes: Routes = [
     component: UserForumComponent
   },
   {
+    path: 'offtopic',
+    component: OffTopicForumsComponent
+  },
+  {
     path: 'forums/:subject',
     component: ForumDetailsComponent
   },
@@ -33,7 +40,11 @@ const appRoutes: Routes = [
   },
   {
     path: 'gameForums/:subject',
-    component: ForumDetailsComponent
+    component: GameSpecificForumsDetailsComponent
+  },
+  {
+    path: 'offtopic/:subject',
+    component: OffTopicForumsDetailsComponent
   }
 ];
 
