@@ -15,7 +15,7 @@ export class StudiosForumsComponent implements OnInit {
   constructor(private router: Router, private userOffTopicForumService: UserForumsService) { }
 
   ngOnInit() {
-    this.studioForums = this.userOffTopicForumService.getOffTopicForums();
+    this.studioForums = this.userOffTopicForumService.getStudioForums();
   }
 
 
