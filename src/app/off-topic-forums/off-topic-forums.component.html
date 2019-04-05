@@ -5,3 +5,8 @@
     <h3 class="routeClickable"><em>{{offTopicForum.title}}</em></h3>
   </div>
 </div>
+<div *ngFor='let offTopicForum of firebaseOffTopicForums | async' (click)="goToOffTopicDetailPage(offTopicForum)">
+  <div class='panel-body'>
+    <h3 class="routeClickable"><em>{{offTopicForum.title}}</em></h3>
+  </div>
+</div>

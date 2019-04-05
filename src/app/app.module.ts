@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routing } from './app.routing';
+import { masterFirebaseConfig } from './api-keys';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { UserForumComponent } from './user-forum/user-forum.component';
@@ -14,7 +17,14 @@ import { GameSpecificForumsDetailsComponent } from './game-specific-forums-detai
 import { OffTopicForumsDetailsComponent } from './off-topic-forums-details/off-topic-forums-details.component';
 import { StudioForumsDetailsComponent } from './studio-forums-details/studio-forums-details.component';
 import { AddForumComponent } from './add-forum/add-forum.component';
+import { AdminComponent } from './admin/admin.component';
 
+export const firebaseConfig = {
+  apiKey: masterFirebaseConfig.apiKey,
+  authDomain: masterFirebaseConfig.authDomain,
+  databaseURL: masterFirebaseConfig.databaseURL,
+  storageBucket: masterFirebaseConfig.storageBucket
+};
 
 @NgModule({
   declarations: [
@@ -29,11 +39,14 @@ import { AddForumComponent } from './add-forum/add-forum.component';
     GameSpecificForumsDetailsComponent,
     OffTopicForumsDetailsComponent,
     StudioForumsDetailsComponent,
-    AddForumComponent
+    AddForumComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

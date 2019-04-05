@@ -35,6 +35,10 @@ export class UserForumsService {
     return OFFTOPICFORUMS;
   }
 
+  getFirebaseOffTopicForums() {
+    return this.firebaseOffTopicForums;
+  }
+
   getUserOffTopicForumBySubject(userGameForumSubject: string) {
     for (let i = 0; i <= OFFTOPICFORUMS.length - 1; i++) {
       if (OFFTOPICFORUMS[i].subject === userGameForumSubject) {
