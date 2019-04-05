@@ -24,6 +24,6 @@ export class ForumDetailsComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.userForumSubject = urlParameters['subject'];
   });
-    this.userForumToDisplay = this.userForumsService.getUserForumBySubject(this.userForumSubject);
+    // this.userForumToDisplay = this.userForumsService.getUserForumBySubject(this.userForumSubject);
   }
 }

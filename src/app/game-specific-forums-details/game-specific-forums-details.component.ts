@@ -24,7 +24,7 @@ export class GameSpecificForumsDetailsComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.userForumSubject = urlParameters['subject'];
     });
-    this.userForumToDisplay = this.userForumsService.getUserGameForumBySubject(this.userForumSubject);
+    // this.userForumToDisplay = this.userForumsService.getUserGameForumBySubject(this.userForumSubject);
   }
 
 }
