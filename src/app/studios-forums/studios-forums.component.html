@@ -1,5 +1,7 @@
 <h1>Welcome to the studio specific forums!</h1>
 
-<a routerLink="bungie">Bungie Discussion</a><br>
-<a routerLink="epicgames">Epic Games Discussion</a><br>
-<a routerLink="valve">Valve Discussion</a><br>
+<div *ngFor='let studioForum of studioForums' (click)="goToDetailPage(studioForum)">
+  <div class='panel-body'>
+    <h3 class="routeClickable"><em>{{studioForum.title}}</em></h3>
+  </div>
+</div>

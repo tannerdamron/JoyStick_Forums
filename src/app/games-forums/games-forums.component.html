@@ -1,5 +1,7 @@
 <h1>Welcome to the game specific forums!</h1>
 
-<a routerLink="halo">Halo Discussion</a><br>
-<a routerLink="callofduty">Call Of Duty Discussion</a><br>
-<a routerLink="runescape">Runescape Discussion</a><br>
+<div *ngFor='let gameForum of gameForums' (click)="goToDetailPage(gameForum)">
+  <div class='panel-body'>
+    <h3 class="routeClickable"><em>{{gameForum.title}}</em></h3>
+  </div>
+</div>

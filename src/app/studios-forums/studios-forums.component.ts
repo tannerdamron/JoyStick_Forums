@@ -18,4 +18,8 @@ export class StudiosForumsComponent implements OnInit {
     new UserForum('Valve releases Half Life 3?', 'Valve', 'haha nope', '3-5-2017'),
     new UserForum('BorderLands 3 soon', '2K Games', 'This looks so goooood!', '4-4-2018')
   ];
+
+  goToDetailPage(clickedForum: UserForum) {
+    this.router.navigate(['studioForums', clickedForum.subject]);
+  }
 }
