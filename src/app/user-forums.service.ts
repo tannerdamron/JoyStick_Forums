@@ -10,6 +10,7 @@ export class UserForumsService {
 
   constructor(private database: AngularFireDatabase) {
     this.adminForums = database.list('adminForums');
+    this.offTopicForums = database.list('offTopicForums');
   }
 
   getOffTopicForums() {

@@ -16,7 +16,6 @@ import { OffTopicForumsComponent } from './off-topic-forums/off-topic-forums.com
 import { GameSpecificForumsDetailsComponent } from './game-specific-forums-details/game-specific-forums-details.component';
 import { OffTopicForumsDetailsComponent } from './off-topic-forums-details/off-topic-forums-details.component';
 import { StudioForumsDetailsComponent } from './studio-forums-details/studio-forums-details.component';
-import { AddForumComponent } from './add-forum/add-forum.component';
 import { AdminComponent } from './admin/admin.component';
 
 export const firebaseConfig = {
@@ -39,7 +38,6 @@ export const firebaseConfig = {
     GameSpecificForumsDetailsComponent,
     OffTopicForumsDetailsComponent,
     StudioForumsDetailsComponent,
-    AddForumComponent,
     AdminComponent
   ],
   imports: [

@@ -13,11 +13,11 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 
 export class OffTopicForumsComponent implements OnInit {
-  offTopicForums: UserForum[] = [];
-  firebaseOffTopicForums: FirebaseListObservable<any[]>;
+  offTopicForums: FirebaseListObservable<any[]>;
+  showAddForum = null;
 
   constructor(private router: Router, private userOffTopicForumsService: UserForumsService, private database: AngularFireDatabase) {
-    this.firebaseOffTopicForums = database.list('OFFTOPICFORUMS');
+    this.offTopicForums = database.list('offTopicForums');
   }
 
   ngOnInit() {
@@ -28,4 +28,19 @@ export class OffTopicForumsComponent implements OnInit {
     this.router.navigate(['offTopicForums', clickedForum.subject]);
   }
 
+  addForum(title: string, subject: string, body: string) {
+    const currentTime = new Date();
+    const date = (currentTime.toString()).substr(0, 15);
+    const newForum = new UserForum(title, subject, body, date);
+    this.userOffTopicForumsService.addOffTopicForum(newForum);
+    this.showAddForum = null;
+  }
+
+  showAddForumForm() {
+    this.showAddForum = true;
+  }
+
+  hideAddForumForm() {
+    this.showAddForum = null;
+  }
 }

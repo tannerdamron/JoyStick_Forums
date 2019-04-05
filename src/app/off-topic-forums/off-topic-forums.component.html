@@ -1,12 +1,39 @@
 <h1>Welcome to the Off Topic forums!</h1>
 
-<div *ngFor='let offTopicForum of offTopicForums' (click)="goToOffTopicDetailPage(offTopicForum)">
+<div *ngFor='let offTopicForum of offTopicForums | async' (click)="goToOffTopicDetailPage(offTopicForum)">
   <div class='panel-body'>
     <h3 class="routeClickable"><em>{{offTopicForum.title}}</em></h3>
   </div>
 </div>
-<div *ngFor='let offTopicForum of firebaseOffTopicForums | async' (click)="goToOffTopicDetailPage(offTopicForum)">
-  <div class='panel-body'>
-    <h3 class="routeClickable"><em>{{offTopicForum.title}}</em></h3>
+<button (click)="showAddForumForm()">Make a post</button>
+<div id="newForumForm" *ngIf="showAddForum">
+  <div class="card card-default">
+    <div class="card-heading">
+      <h3 class="card-title">Add Forum</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div>
+          <label>Forum Title:</label>
+          <br>
+          <input #newTitle>
+        </div>
+
+        <div>
+          <label>Forum Subject:</label>
+          <br>
+          <input #newSubject>
+        </div>
+
+        <div>
+          <label>Forum Body:</label>
+          <br>
+          <textarea #newBody></textarea>
+        </div>
+        <button
+          (click)="addForum(newTitle.value, newSubject.value, newBody.value); newTitle.value=''; newSubject.value=''; newBody.value=''">Add</button>
+      </div>
+    </div>
   </div>
+  <button (click)="hideAddForumForm()">Hide</button>
 </div>
