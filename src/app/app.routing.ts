@@ -24,15 +24,15 @@ const appRoutes: Routes = [
     component: UserForumComponent
   },
   {
-    path: 'forums/:title',
+    path: 'forums/:subject',
     component: ForumDetailsComponent
   },
   {
-    path: 'studioForums/:title',
+    path: 'studioForums/:subject',
     component: ForumDetailsComponent
   },
   {
-    path: 'gameForums/:title',
+    path: 'gameForums/:subject',
     component: ForumDetailsComponent
   }
 ];
