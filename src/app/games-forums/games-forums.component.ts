@@ -1,24 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { UserForum } from '../models/user-forum.model';
 import { Router } from '@angular/router';
+import { UserForumsService } from '../user-forums.service';
 
 @Component({
   selector: 'app-games-forums',
   templateUrl: './games-forums.component.html',
-  styleUrls: ['./games-forums.component.css']
+  styleUrls: ['./games-forums.component.css'],
+  providers: [UserForumsService]
 })
 export class GamesForumsComponent implements OnInit {
+  gameForums: UserForum[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userGameForumsService: UserForumsService) {}
 
   ngOnInit() {
   }
 
-  gameForums: UserForum[] = [
-    new UserForum('My theory on if Call of Duty is ever gonna live again', 'Call Of Duty', 'Probably not', '3-5-2016'),
-    new UserForum('RuneScape General Discussion', 'Runescape', 'wack wack wack wack wack', '1-12-2018'),
-    new UserForum('Halo Online General Discussion', 'Halo', 'Let\'s play a match today? Anyone? Leave a comment with your gamertag', '4-4-2019')
-  ];
 
   goToDetailPage(clickedForum: UserForum) {
     this.router.navigate(['gameForums', clickedForum.subject]);
