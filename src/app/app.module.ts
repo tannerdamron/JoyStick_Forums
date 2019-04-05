@@ -13,6 +13,7 @@ import { TitleLogoComponent } from './title-logo/title-logo.component';
 import { OffTopicForumsComponent } from './off-topic-forums/off-topic-forums.component';
 import { GameSpecificForumsDetailsComponent } from './game-specific-forums-details/game-specific-forums-details.component';
 import { OffTopicForumsDetailsComponent } from './off-topic-forums-details/off-topic-forums-details.component';
+import { StudioForumsDetailsComponent } from './studio-forums-details/studio-forums-details.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { OffTopicForumsDetailsComponent } from './off-topic-forums-details/off-t
     TitleLogoComponent,
     OffTopicForumsComponent,
     GameSpecificForumsDetailsComponent,
-    OffTopicForumsDetailsComponent
+    OffTopicForumsDetailsComponent,
+    StudioForumsDetailsComponent
   ],
   imports: [
     BrowserModule,

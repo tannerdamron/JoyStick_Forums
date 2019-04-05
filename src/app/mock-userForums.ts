@@ -14,6 +14,10 @@ export const USERGAMEFORUMS: UserForum[] = [
 
 export const OFFTOPICFORUMS: UserForum[] = [
   new UserForum('Who let the dogs out?', 'dogs', 'who, who, who', '4-6-2017'),
-  new UserForum('Won-Ton soup good for gaming?', 'soup', 'Ya know, I really think it is. It seems to warm my belly up which in turn warms up my brain and badda bing badda boom, headshot here no-scope there', '4-5-2019'),
-  new UserForum('Halo Online General Discussion', 'Halo', 'Let\'s play a match today? Anyone? Leave a comment with your gamertag', '4-4-2019')
+  new UserForum('Won-Ton soup good for gaming?', 'soup', 'Ya know, I really think it is. It seems to warm my belly up which in turn warms up my brain and badda bing badda boom, headshot here no-scope there', '4-5-2019')
+];
+
+export const STUDIOFORUMS: UserForum[] = [
+  new UserForum('Valve releases Half Life 3?', 'Valve', 'haha nope', '3-5-2017'),
+  new UserForum('2K Games\' BorderLands 3 soon', '2K Games', 'This looks so goooood!', '4-4-2018')
 ];

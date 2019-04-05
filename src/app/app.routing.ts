@@ -43,7 +43,7 @@ const appRoutes: Routes = [
     component: GameSpecificForumsDetailsComponent
   },
   {
-    path: 'offtopic/:subject',
+    path: 'offTopicForums/:subject',
     component: OffTopicForumsDetailsComponent
   }
 ];

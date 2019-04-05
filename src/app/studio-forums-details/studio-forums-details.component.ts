@@ -4,14 +4,13 @@ import { Location } from '@angular/common';
 import { UserForum } from '../models/user-forum.model';
 import { UserForumsService } from '../user-forums.service';
 
-
 @Component({
-  selector: 'app-off-topic-forums-details',
-  templateUrl: './off-topic-forums-details.component.html',
-  styleUrls: ['./off-topic-forums-details.component.css'],
+  selector: 'app-studio-forums-details',
+  templateUrl: './studio-forums-details.component.html',
+  styleUrls: ['./studio-forums-details.component.css'],
   providers: [UserForumsService]
 })
-export class OffTopicForumsDetailsComponent implements OnInit {
+export class StudioForumsDetailsComponent implements OnInit {
   userForumSubject: string;
   userForumToDisplay: UserForum;
 
@@ -25,7 +24,7 @@ export class OffTopicForumsDetailsComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.userForumSubject = urlParameters['subject'];
     });
-    this.userForumToDisplay = this.userForumsService.getUserOffTopicForumBySubject(this.userForumSubject);
+    this.userForumToDisplay = this.userForumsService.getUserStudioForumBySubject(this.userForumSubject);
   }
 
 }

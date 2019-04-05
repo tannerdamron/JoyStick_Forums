@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { UserForum } from '../models/user-forum.model';
 import { Router } from '@angular/router';
+import { UserForumsService } from '../user-forums.service';
 
 @Component({
   selector: 'app-studios-forums',
   templateUrl: './studios-forums.component.html',
-  styleUrls: ['./studios-forums.component.css']
+  styleUrls: ['./studios-forums.component.css'],
+  providers: [UserForumsService]
 })
 export class StudiosForumsComponent implements OnInit {
+  studioForums: UserForum[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userOffTopicForumService: UserForumsService) { }
 
   ngOnInit() {
+    this.studioForums = this.userOffTopicForumService.getOffTopicForums();
   }
 
-  studioForums: UserForum[] = [
-    new UserForum('Valve releases Half Life 3?', 'Valve', 'haha nope', '3-5-2017'),
-    new UserForum('BorderLands 3 soon', '2K Games', 'This looks so goooood!', '4-4-2018')
-  ];
 
   goToDetailPage(clickedForum: UserForum) {
     this.router.navigate(['studioForums', clickedForum.subject]);
