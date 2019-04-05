@@ -1,0 +1,7 @@
+<h2>General Forums</h2>
+
+<div *ngFor='let forum of forums' (click)="goToDetailPage(forum)">
+  <div class='panel-body'>
+    <h3 class="routeClickable"><em>{{forum.title}}</em></h3>
+  </div>
+</div>
