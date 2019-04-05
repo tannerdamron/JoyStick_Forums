@@ -1,3 +1,11 @@
-<p>
-  add-forum works!
-</p>
+<button (click)="showAddForumForm()">Make a post in General Discussion</button>
+<div id="newForumForm" *ngIf="showAddForum">
+  <label for="title">Title: </label>
+  <input [(ngModel)]="title" #title required><br>
+  <label for="subject">Subject: </label>
+  <input [(ngModel)]="subject" #subject required><br>
+  <label for="body">Body: </label>
+  <input [(ngModel)]="body" #body required><br>
+  <button (click)="addForum(title.value, subject.value, body.value)">Submit!</button>
+  <button (click)="hideAddForumForm()">Hide</button>
+</div>
