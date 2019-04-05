@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserForum } from '../models/user-forum.model';
 import { Router } from '@angular/router';
 import { UserForumsService } from '../user-forums.service';
@@ -9,10 +9,14 @@ import { UserForumsService } from '../user-forums.service';
   styleUrls: ['./user-forum.component.css'],
   providers: [UserForumsService]
 })
-export class UserForumComponent {
+export class UserForumComponent implements OnInit {
+  forums: UserForum[];
+
   constructor(private router: Router, private userForumService: UserForumsService) { }
 
-  forums: UserForum[];
+  ngOnInit() {
+    this.forums = this.userForumService.getUserForums();
+  }
 
   goToDetailPage(clickedForum: UserForum) {
     this.router.navigate(['forums', clickedForum.subject]);

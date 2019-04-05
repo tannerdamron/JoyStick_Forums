@@ -11,4 +11,12 @@ export class UserForumsService {
     return USERFORUMS;
   }
 
+  getUserForumBySubject(userForumSubject: string){
+    for (let i = 0; i <= USERFORUMS.length - 1; i++) {
+      if (USERFORUMS[i].subject === userForumSubject) {
+        return USERFORUMS[i];
+      }
+    }
+  }
+
 }
