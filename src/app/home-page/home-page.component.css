@@ -1,0 +1,101 @@
+#generalForumsButton {
+  display:inline-block;
+  padding:0.46em 1.6em;
+  border:0.1em solid #000000;
+  margin:0 0.2em 0.2em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:blue;
+  background-color:#FFFFFF;
+  text-align:center;
+  transition: all 0.15s;
+}
+
+#generalForumsButton:hover {
+  text-shadow: 0 0 2em rgba(255,255,255,1);
+  color: black;
+  border-color: violet;
+}
+
+#studioForumsButton {
+  display:inline-block;
+  padding:0.46em 1.6em;
+  border:0.1em solid #000000;
+  margin:0 0.2em 0.2em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color: yellow;
+  background-color:#FFFFFF;
+  text-align:center;
+  transition: all 0.15s;
+}
+
+#studioForumsButton:hover {
+  text-shadow: 0 0 2em rgba(255,255,255,1);
+  color: black;
+  border-color: violet;
+}
+
+#gameSpecificForumsButton {
+  display:inline-block;
+  padding:0.46em 1.6em;
+  border:0.1em solid #000000;
+  margin:0 0.2em 0.2em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color: red;
+  background-color:#FFFFFF;
+  text-align:center;
+  transition: all 0.15s;
+}
+
+#gameSpecificForumsButton:hover {
+  text-shadow: 0 0 2em rgba(255,255,255,1);
+  color: black;
+  border-color: violet;
+}
+
+#offtopicForumsButton {
+  display:inline-block;
+  padding:0.46em 1.6em;
+  border:0.1em solid #000000;
+  margin:0 0.2em 0.2em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color: violet;
+  background-color:#FFFFFF;
+  text-align:center;
+  transition: all 0.15s;
+}
+
+#offtopicForumsButton:hover {
+  text-shadow: 0 0 2em rgba(255,255,255,1);
+  color: black;
+  border-color: violet;
+}
+
+.bouncy{
+  animation:bouncy 5s infinite linear;
+  position:relative;
+}
+@keyframes bouncy {
+  0%{top:0em}
+  40%{top:0em}
+  43%{top:-0.9em}
+  46%{top:0em}
+  48%{top:-0.4em}
+  50%{top:0em}
+  100%{top:0em;}
+}
