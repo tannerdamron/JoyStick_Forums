@@ -1,11 +1,11 @@
-<h1>Welcome to the Off Topic forums!</h1>
-
-<div *ngFor='let offTopicForum of offTopicForums | async' (click)="goToOffTopicDetailPage(offTopicForum)">
-  <div class='panel-body'>
-    <h3 class="routeClickable"><em>{{offTopicForum.title}}</em></h3>
+<div class="row">
+  <div class="col-md-6">
+    <h2>Off Topic Discussion</h2>
+  </div>
+  <div class="col-md-6">
+    <button class="newPostButton btn btn-info" (click)="showAddForumForm()">Post in Off Topic Discussion</button>
   </div>
 </div>
-<button (click)="showAddForumForm()">Make a post</button>
 <div id="newForumForm" *ngIf="showAddForum">
   <div class="card card-default">
     <div class="card-heading">
@@ -32,8 +32,14 @@
         </div>
         <button
           (click)="addForum(newTitle.value, newSubject.value, newBody.value); newTitle.value=''; newSubject.value=''; newBody.value=''">Add</button>
+          <button (click)="hideAddForumForm()">Hide</button>
       </div>
     </div>
   </div>
-  <button (click)="hideAddForumForm()">Hide</button>
+</div>
+<div *ngFor='let offTopicForum of offTopicForums | async' (click)="goToOffTopicDetailPage(offTopicForum)">
+  <div id="post" class='card-body'>
+    <h3><em>{{offTopicForum.title}}</em></h3>
+    <p>Posted: {{offTopicForum.dateCreated}}</p>
+  </div>
 </div>
