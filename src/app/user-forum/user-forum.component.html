@@ -1,11 +1,11 @@
-<h2>General Forums</h2>
-
-<div *ngFor='let forum of generalForums | async' (click)="goToDetailPage(forum)">
-  <div class='panel-body'>
-    <h3 class="routeClickable"><em>{{forum.title}}</em></h3>
+<div class="row">
+  <div class="col-md-6">
+    <h2>General Discussion</h2>
+  </div>
+  <div class="col-md-6">
+    <button class="newPostButton btn btn-info" (click)="showAddForumForm()">Post in General Discussion</button>
   </div>
 </div>
-<button (click)="showAddForumForm()">Make a post</button>
 <div id="newForumForm" *ngIf="showAddForum">
   <div class="card card-default">
     <div class="card-heading">
@@ -32,8 +32,14 @@
         </div>
         <button
           (click)="addForum(newTitle.value, newSubject.value, newBody.value); newTitle.value=''; newSubject.value=''; newBody.value=''">Add</button>
+          <button (click)="hideAddForumForm()">Hide</button>
       </div>
     </div>
   </div>
-  <button (click)="hideAddForumForm()">Hide</button>
+</div>
+<div *ngFor='let forum of generalForums | async' (click)="goToDetailPage(forum)">
+  <div id="post" class='card-body'>
+    <h3><em>{{forum.title}}</em></h3>
+    <p>Posted: {{forum.dateCreated}}</p>
+  </div>
 </div>

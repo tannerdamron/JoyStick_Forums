@@ -2,12 +2,12 @@
   display:inline-block;
   padding:0.46em 1.6em;
   border:0.1em solid #000000;
-  margin:0 0.2em 0.2em 0;
-  border-radius:0.12em;
+  margin:10px 20px 10px 20%;
+  border-radius:40%;
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
-  font-weight:300;
+  font-weight:600;
   color:blue;
   background-color:#FFFFFF;
   text-align:center;
@@ -24,13 +24,13 @@
   display:inline-block;
   padding:0.46em 1.6em;
   border:0.1em solid #000000;
-  margin:0 0.2em 0.2em 0;
-  border-radius:0.12em;
+  margin:10px 20px 10px 20%;
+  border-radius:40%;
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
-  font-weight:300;
-  color: yellow;
+  font-weight:600;
+  color: rgba(96, 231, 96, 0.808);
   background-color:#FFFFFF;
   text-align:center;
   transition: all 0.15s;
@@ -46,12 +46,12 @@
   display:inline-block;
   padding:0.46em 1.6em;
   border:0.1em solid #000000;
-  margin:0 0.2em 0.2em 0;
-  border-radius:0.12em;
+  margin:10px 20px 10px 20%;
+  border-radius:40%;
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
-  font-weight:300;
+  font-weight:600;
   color: red;
   background-color:#FFFFFF;
   text-align:center;
@@ -68,12 +68,12 @@
   display:inline-block;
   padding:0.46em 1.6em;
   border:0.1em solid #000000;
-  margin:0 0.2em 0.2em 0;
-  border-radius:0.12em;
+  margin:10px 20px 10px 20%;
+  border-radius:40%;
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
-  font-weight:300;
+  font-weight:600;
   color: violet;
   background-color:#FFFFFF;
   text-align:center;
@@ -86,9 +86,11 @@
   border-color: violet;
 }
 
-.bouncy{
+.bouncy {
   animation: bouncy 4s infinite linear;
   position: relative;
+  width: 200px;
+  height: 150px;
 }
 @keyframes bouncy {
   0%{top:0em}
