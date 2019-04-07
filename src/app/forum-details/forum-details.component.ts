@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserForum } from '../models/user-forum.model';
 import { UserForumsService } from '../user-forums.service';
+import { FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-forum-details',
@@ -12,7 +13,7 @@ import { UserForumsService } from '../user-forums.service';
 })
 export class ForumDetailsComponent implements OnInit {
   userForumSubject: string;
-  userForumToDisplay: UserForum;
+  userForumToDisplay;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +25,6 @@ export class ForumDetailsComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.userForumSubject = urlParameters['subject'];
   });
-    // this.userForumToDisplay = this.userForumsService.getUserForumBySubject(this.userForumSubject);
+    this.userForumToDisplay = this.userForumsService.getGeneralForumBySubject(this.userForumSubject);
   }
 }

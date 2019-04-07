@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserForum } from './models/user-forum.model';
-import { USERFORUMS, USERGAMEFORUMS, OFFTOPICFORUMS, STUDIOFORUMS } from './mock-userForums';
+import { STUDIOFORUMS } from './mock-userForums';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
@@ -8,11 +8,39 @@ export class UserForumsService {
   adminForums: FirebaseListObservable<any[]>;
   offTopicForums: FirebaseListObservable<any[]>;
   generalForums: FirebaseListObservable<any[]>;
+  gameSpecificForums: FirebaseListObservable<any[]>;
+  studioSpecificForums: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
     this.adminForums = database.list('adminForums');
     this.offTopicForums = database.list('offTopicForums');
     this.generalForums = database.list('generalForums');
+    this.gameSpecificForums = database.list('gameSpecificForums');
+    this.studioSpecificForums = database.list('studioSpecificForums');
+  }
+
+  getStudioSpecificForums() {
+    return this.studioSpecificForums;
+  }
+
+  getUserStudioForumBySubject(userGameForumSubject: string) {
+    return this.database.object('studioSpecificForums/' + userGameForumSubject);
+  }
+
+  addToStudioSpecificForum(newForum: UserForum) {
+    this.studioSpecificForums.push(newForum);
+  }
+
+  getUserGameForums() {
+    return this.gameSpecificForums;
+  }
+
+  getUserGameForumBySubject(userGameForumSubject: string) {
+    return this.database.object('gameSpecificForums/' + userGameForumSubject);
+  }
+
+  addToGameSpecificForum(newForum: UserForum) {
+    this.gameSpecificForums.push(newForum);
   }
 
   getGeneralForums() {
@@ -23,12 +51,8 @@ export class UserForumsService {
     this.generalForums.push(newForum);
   }
 
-  getUserForumBySubject(userForumSubject: string) {
-    // for (let i = 0; i <= USERFORUMS.length - 1; i++) {
-    //   if (USERFORUMS[i].subject === userForumSubject) {
-    //     return USERFORUMS[i];
-    //   }
-    // }
+  getGeneralForumBySubject(userForumSubject: string) {
+    return this.database.object('generalForums/' + userForumSubject)
   }
 
   getOffTopicForums() {
@@ -40,11 +64,7 @@ export class UserForumsService {
   }
 
   getUserOffTopicForumBySubject(userGameForumSubject: string) {
-    // for (let i = 0; i <= OFFTOPICFORUMS.length - 1; i++) {
-    //   if (OFFTOPICFORUMS[i].subject === userGameForumSubject) {
-    //     return OFFTOPICFORUMS[i];
-    //   }
-    // }
+    return this.database.object('offTopicForums/' + userGameForumSubject);
   }
 
   getAdminForums() {
@@ -53,30 +73,6 @@ export class UserForumsService {
 
   addAdminForum(newForum: UserForum) {
     this.adminForums.push(newForum);
-  }
-
-  getUserGameForums() {
-    return USERGAMEFORUMS;
-  }
-
-  getUserGameForumBySubject(userGameForumSubject: string) {
-    // for (let i = 0; i <= USERGAMEFORUMS.length - 1; i++) {
-    //   if (USERGAMEFORUMS[i].subject === userGameForumSubject) {
-    //     return USERGAMEFORUMS[i];
-    //   }
-    // }
-  }
-
-  getStudioForums() {
-    return STUDIOFORUMS;
-  }
-
-  getUserStudioForumBySubject(userGameForumSubject: string) {
-    // for (let i = 0; i <= STUDIOFORUMS.length - 1; i++) {
-    //   if (STUDIOFORUMS[i].subject === userGameForumSubject) {
-    //     return STUDIOFORUMS[i];
-    //   }
-    // }
   }
 
 }

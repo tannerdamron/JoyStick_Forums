@@ -24,8 +24,8 @@ export class UserForumComponent implements OnInit {
     this.generalForums = this.generalForumService.getGeneralForums();
   }
 
-  goToDetailPage(clickedForum: UserForum) {
-    this.router.navigate(['forums', clickedForum.subject]);
+  goToDetailPage(clickedForum) {
+    this.router.navigate(['generalForums', clickedForum.$key]);
   }
 
   addForum(title: string, subject: string, body: string) {

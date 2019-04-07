@@ -17,7 +17,7 @@ const appRoutes: Routes = [
     component: HomePageComponent
   },
   {
-    path: 'forums',
+    path: 'games',
     component: GamesForumsComponent
   },
   {
@@ -33,15 +33,15 @@ const appRoutes: Routes = [
     component: OffTopicForumsComponent
   },
   {
-    path: 'forums/:subject',
+    path: 'generalForums/:subject',
     component: ForumDetailsComponent
   },
   {
-    path: 'studioForums/:subject',
+    path: 'studioSpecificForums/:subject',
     component: StudioForumsDetailsComponent
   },
   {
-    path: 'gameForums/:subject',
+    path: 'gameSpecificForums/:subject',
     component: GameSpecificForumsDetailsComponent
   },
   {

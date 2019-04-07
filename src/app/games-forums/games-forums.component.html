@@ -1,7 +1,39 @@
 <h1>Welcome to the game specific forums!</h1>
 
-<div *ngFor='let gameForum of gameForums' (click)="goToGameSpecificDetailPage(gameForum)">
+<div *ngFor='let gameForum of gameSpecificForums | async' (click)="goToGameSpecificDetailPage(gameForum)">
   <div class='panel-body'>
     <h3 class="routeClickable"><em>{{gameForum.title}}</em></h3>
   </div>
+</div>
+<button (click)="showAddForumForm()">Make a post</button>
+<div id="newForumForm" *ngIf="showAddForum">
+  <div class="card card-default">
+    <div class="card-heading">
+      <h3 class="card-title">Add Forum</h3>
+    </div>
+    <div class="card-body">
+      <div>
+        <div>
+          <label>Forum Title:</label>
+          <br>
+          <input #newTitle>
+        </div>
+
+        <div>
+          <label>Forum Subject:</label>
+          <br>
+          <input #newSubject>
+        </div>
+
+        <div>
+          <label>Forum Body:</label>
+          <br>
+          <textarea #newBody></textarea>
+        </div>
+        <button
+          (click)="addForum(newTitle.value, newSubject.value, newBody.value); newTitle.value=''; newSubject.value=''; newBody.value=''">Add</button>
+      </div>
+    </div>
+  </div>
+  <button (click)="hideAddForumForm()">Hide</button>
 </div>

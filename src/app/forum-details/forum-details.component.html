@@ -1,6 +1,6 @@
 <div>
-  <h2>Title: {{userForumToDisplay.title}}</h2>
-  <h3>Subject: {{userForumToDisplay.subject}}</h3>
-  <p>{{userForumToDisplay.body}}</p>
-  <p>Date Created: {{userForumToDisplay.dateCreated}}</p>
+  <h2>Title: {{(userForumToDisplay | async)?.title}}</h2>
+  <h3>Subject: {{(userForumToDisplay | async)?.subject}}</h3>
+  <p>{{(userForumToDisplay | async)?.body}}</p>
+  <p>Date Created: {{(userForumToDisplay | async)?.dateCreated}}</p>
 </div>

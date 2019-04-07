@@ -24,8 +24,8 @@ export class OffTopicForumsComponent implements OnInit {
     this.offTopicForums = this.userOffTopicForumsService.getOffTopicForums();
   }
 
-  goToOffTopicDetailPage(clickedForum: UserForum) {
-    this.router.navigate(['offTopicForums', clickedForum.subject]);
+  goToOffTopicDetailPage(clickedForum) {
+    this.router.navigate(['offTopicForums', clickedForum.$key]);
   }
 
   addForum(title: string, subject: string, body: string) {

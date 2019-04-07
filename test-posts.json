@@ -38,5 +38,33 @@
       "body": "niceeeeeeeeeeeeeeeeeeeeeeeeeeeee",
       "dateCreated": "03-18-17"
     }
+  ],
+  "gameSpecificForums": [
+    {
+      "title": "Game Specific test",
+      "subject": "Test",
+      "body": "pass",
+      "dateCreated": "11-01-18"
+    },
+    {
+      "title": "Game Specific 2",
+      "subject": "2",
+      "body": "c'monnnnn",
+      "dateCreated": "01-01-01"
+    }
+  ],
+  "studioSpecificForums": [
+    {
+      "title": "Studio Specific test",
+      "subject": "Test",
+      "body": "pass",
+      "dateCreated": "11-01-18"
+    },
+    {
+      "title": "Studio Specific 2",
+      "subject": "2",
+      "body": "c'monnnnn",
+      "dateCreated": "01-01-01"
+    }
   ]
 }
