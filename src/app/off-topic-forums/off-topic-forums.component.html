@@ -16,19 +16,19 @@
         <div>
           <label>Forum Title:</label>
           <br>
-          <input #newTitle>
+          <input class="postInputs" #newTitle>
         </div>
 
         <div>
           <label>Forum Subject:</label>
           <br>
-          <input #newSubject>
+          <input class="postInputs" #newSubject>
         </div>
 
         <div>
           <label>Forum Body:</label>
           <br>
-          <textarea #newBody></textarea>
+          <textarea class="postInputs" #newBody></textarea>
         </div>
         <button
           (click)="addForum(newTitle.value, newSubject.value, newBody.value); newTitle.value=''; newSubject.value=''; newBody.value=''">Add</button>

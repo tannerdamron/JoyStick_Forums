@@ -1,3 +1,11 @@
+.jumbotron {
+  opacity: 0.5;
+  color: black;
+  
+  font-family:'Roboto',sans-serif;
+  background-image: url('https://static.tumblr.com/9bb2d561662dfffc230d85232a51cbea/9hifxkq/XB9nimlot/tumblr_static_3eaklsueo604w4sgo444skg0.gif')
+}
+
 #generalForumsButton {
   display:inline-block;
   padding:0.46em 1.6em;
@@ -7,17 +15,19 @@
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
-  font-weight:600;
+  font-weight:1000;
   color:blue;
   background-color:#FFFFFF;
   text-align:center;
+  text-shadow: .5px .5px black;
   transition: all 0.15s;
+  background-image: url('https://static.tumblr.com/9bb2d561662dfffc230d85232a51cbea/9hifxkq/XB9nimlot/tumblr_static_3eaklsueo604w4sgo444skg0.gif')
 }
 
 #generalForumsButton:hover {
   text-shadow: 0 0 2em rgba(255,255,255,1);
   color: black;
-  border-color: violet;
+  border-color: skyblue;
 }
 
 #studioForumsButton {
@@ -29,17 +39,19 @@
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
-  font-weight:600;
-  color: rgba(96, 231, 96, 0.808);
+  font-weight:1000;
+  color: rgb(68, 170, 68);
   background-color:#FFFFFF;
   text-align:center;
+  text-shadow: .5px .5px black;
   transition: all 0.15s;
+  background-image: url('https://static.tumblr.com/9bb2d561662dfffc230d85232a51cbea/9hifxkq/XB9nimlot/tumblr_static_3eaklsueo604w4sgo444skg0.gif')
 }
 
 #studioForumsButton:hover {
   text-shadow: 0 0 2em rgba(255,255,255,1);
   color: black;
-  border-color: violet;
+  border-color: skyblue;
 }
 
 #gameSpecificForumsButton {
@@ -51,17 +63,19 @@
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
-  font-weight:600;
+  font-weight:1000;
   color: red;
   background-color:#FFFFFF;
   text-align:center;
+  text-shadow: .5px .5px black;
   transition: all 0.15s;
+  background-image: url('https://static.tumblr.com/9bb2d561662dfffc230d85232a51cbea/9hifxkq/XB9nimlot/tumblr_static_3eaklsueo604w4sgo444skg0.gif')
 }
 
 #gameSpecificForumsButton:hover {
   text-shadow: 0 0 2em rgba(255,255,255,1);
   color: black;
-  border-color: violet;
+  border-color: skyblue;
 }
 
 #offtopicForumsButton {
@@ -73,17 +87,19 @@
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
-  font-weight:600;
+  font-weight:1000;
   color: violet;
   background-color:#FFFFFF;
   text-align:center;
+  text-shadow: .5px .5px black;
   transition: all 0.15s;
+  background-image: url('https://static.tumblr.com/9bb2d561662dfffc230d85232a51cbea/9hifxkq/XB9nimlot/tumblr_static_3eaklsueo604w4sgo444skg0.gif')
 }
 
 #offtopicForumsButton:hover {
   text-shadow: 0 0 2em rgba(255,255,255,1);
   color: black;
-  border-color: violet;
+  border-color: skyblue;
 }
 
 .bouncy {
