@@ -3,7 +3,8 @@
     <h2>General Discussion</h2>
   </div>
   <div class="col-md-6">
-    <button class="newPostButton btn btn-info" (click)="showAddForumForm()">Post in General Discussion</button>
+    <button *ngIf="isLoggedIn" class="newPostButton btn btn-info" (click)="showAddForumForm()">Post in General Discussion</button>
+    <p *ngIf="!isLoggedIn">Please log in to make a post</p>
   </div>
 </div>
 <div id="newForumForm" *ngIf="showAddForum">
@@ -41,5 +42,6 @@
   <div id="post" class='card-body'>
     <h3><em>{{forum.title}}</em></h3>
     <p>Posted: {{forum.dateCreated}}</p>
+    <p>posted by: {{forum.userName}}</p>
   </div>
 </div>

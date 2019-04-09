@@ -15,16 +15,17 @@ import { AuthenticationService } from '../authentication/authentication.service'
 
 export class StudiosForumsComponent implements OnInit {
   private userName: String;
+  private isLoggedIn: Boolean;
   studioSpecificForums: FirebaseListObservable<any[]>;
   showAddForum = null;
 
   constructor(private router: Router, private studioSpecificForumsService: UserForumsService, private database: AngularFireDatabase, public authService: AuthenticationService) {
-    this.studioSpecificForums = database.list('studioSpecificForums');
     this.authService.user.subscribe(user => {
       if (user == null) {
+        this.isLoggedIn = false;
       } else {
+        this.isLoggedIn = true;
         this.userName = user.displayName;
-        console.log(this.userName);
       }
     });
   }

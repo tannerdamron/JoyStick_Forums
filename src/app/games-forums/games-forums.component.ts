@@ -3,6 +3,7 @@ import { UserForum } from '../models/user-forum.model';
 import { Router } from '@angular/router';
 import { UserForumsService } from '../user-forums.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-games-forums',
@@ -13,11 +14,21 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 
 export class GamesForumsComponent implements OnInit {
+  private userName: String;
+  private isLoggedIn: Boolean
   gameSpecificForums: FirebaseListObservable<any[]>;
   showAddForum = null;
 
-  constructor(private router: Router, private userGameForumsService: UserForumsService, private database: AngularFireDatabase) {
+  constructor(private router: Router, private userGameForumsService: UserForumsService, private database: AngularFireDatabase, public authService: AuthenticationService) {
     this.gameSpecificForums = database.list('gameSpecificForums');
+    this.authService.user.subscribe(user => {
+      if (user == null) {
+        this.isLoggedIn = false;
+      } else {
+        this.isLoggedIn = true;
+        this.userName = user.displayName;
+      }
+    });
   }
 
   ngOnInit() {
@@ -32,7 +43,8 @@ export class GamesForumsComponent implements OnInit {
   addForum(title: string, subject: string, body: string) {
     const currentTime = new Date();
     const date = (currentTime.toString()).substr(0, 15);
-    const newForum = new UserForum(title, subject, body, date);
+    const currentUserName = this.userName;
+    const newForum = new UserForum(title, subject, body, date, currentUserName);
     this.userGameForumsService.addToGameSpecificForum(newForum);
     this.showAddForum = null;
   }

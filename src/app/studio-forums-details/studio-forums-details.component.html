@@ -4,5 +4,6 @@
     <h3 class="card-title">Subject: {{(userForumToDisplay | async)?.subject}}</h3>
     <p class="card-text">{{(userForumToDisplay | async)?.body}}</p>
     <p class="card-text">-{{(userForumToDisplay | async)?.dateCreated}}</p>
+    <p class="card-text">posted by: {{(userForumToDisplay | async)?.userName}}</p>
   </div>
 </div>
