@@ -12,7 +12,7 @@
     <ul class="navbar-nav mr-auto">
     </ul>
     <button *ngIf="!isLoggedIn" (click)="login()">Login</button>
-      <p *ngIf="isLoggedIn" style="color:blue">Logged in as: {{userName}}</p>
+      <p *ngIf="isLoggedIn" style="color:lightblue">Logged in as: {{userName}}</p>
       <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

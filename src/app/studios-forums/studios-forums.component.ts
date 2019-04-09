@@ -3,6 +3,7 @@ import { UserForum } from '../models/user-forum.model';
 import { Router } from '@angular/router';
 import { UserForumsService } from '../user-forums.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-studios-forums',
@@ -13,11 +14,19 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 
 export class StudiosForumsComponent implements OnInit {
+  private userName: String;
   studioSpecificForums: FirebaseListObservable<any[]>;
   showAddForum = null;
 
-  constructor(private router: Router, private studioSpecificForumsService: UserForumsService, private database: AngularFireDatabase) {
+  constructor(private router: Router, private studioSpecificForumsService: UserForumsService, private database: AngularFireDatabase, public authService: AuthenticationService) {
     this.studioSpecificForums = database.list('studioSpecificForums');
+    this.authService.user.subscribe(user => {
+      if (user == null) {
+      } else {
+        this.userName = user.displayName;
+        console.log(this.userName);
+      }
+    });
   }
 
   ngOnInit() {
@@ -32,7 +41,8 @@ export class StudiosForumsComponent implements OnInit {
   addForum(title: string, subject: string, body: string) {
     const currentTime = new Date();
     const date = (currentTime.toString()).substr(0, 15);
-    const newForum = new UserForum(title, subject, body, date);
+    const currentUserName = this.userName;
+    const newForum = new UserForum(title, subject, body, date, currentUserName);
     this.studioSpecificForumsService.addToStudioSpecificForum(newForum);
     this.showAddForum = null;
   }
