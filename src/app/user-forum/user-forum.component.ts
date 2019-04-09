@@ -3,6 +3,11 @@ import { UserForum } from '../models/user-forum.model';
 import { Router } from '@angular/router';
 import { UserForumsService } from '../user-forums.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+import { AuthenticationService } from '../authentication/authentication.service';
+
 
 @Component({
   selector: 'app-user-forum',
@@ -13,11 +18,25 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 
 export class UserForumComponent implements OnInit {
+  private isLoggedIn: Boolean;
+  user: Observable<firebase.User>;
+  private userName: String;
   generalForums: FirebaseListObservable<any[]>;
   showAddForum = null;
 
-  constructor(private router: Router, private generalForumService: UserForumsService, private database: AngularFireDatabase) {
+// tslint:disable-next-line: max-line-length
+  constructor(private router: Router, private generalForumService: UserForumsService, private database: AngularFireDatabase, public afAuth: AngularFireAuth, public authService: AuthenticationService) {
     this.generalForums = database.list('generalForums');
+    this.user = afAuth.authState;
+    this.authService.user.subscribe(user => {
+      if (user == null) {
+        this.isLoggedIn = false;
+      } else {
+        this.isLoggedIn = true;
+        this.userName = user.displayName;
+        console.log(this.userName);
+      }
+    });
   }
 
   ngOnInit() {
