@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { UserForum } from './models/user-forum.model';
-import { STUDIOFORUMS } from './mock-userForums';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()

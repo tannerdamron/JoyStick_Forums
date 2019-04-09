@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserForumsService } from '../user-forums.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AuthenticationService } from '../authentication/authentication.service';
+import { UserComment } from '../models/user-comment.model';
 
 @Component({
   selector: 'app-user-forum',
@@ -18,6 +19,7 @@ export class UserForumComponent implements OnInit {
   private isLoggedIn: Boolean;
   generalForums: FirebaseListObservable<any[]>;
   showAddForum = null;
+  userComment = [];
 
   constructor(private router: Router, private generalForumService: UserForumsService, private database: AngularFireDatabase, public authService: AuthenticationService) {
     this.generalForums = database.list('generalForums');
@@ -43,7 +45,9 @@ export class UserForumComponent implements OnInit {
     const currentTime = new Date();
     const date = (currentTime.toString()).substr(0, 15);
     const currentUserName = this.userName;
-    const newForum = new UserForum(title, subject, body, date, currentUserName);
+    const testComment = new UserComment("comment", "username", "date")
+    this.userComment.push(testComment);
+    const newForum = new UserForum(title, subject, body, date, currentUserName, this.userComment);
     this.generalForumService.addToGeneralForums(newForum);
     this.showAddForum = null;
   }
