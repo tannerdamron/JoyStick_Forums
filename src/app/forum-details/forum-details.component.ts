@@ -21,7 +21,7 @@ export class ForumDetailsComponent implements OnInit {
   userForumSubject: string;
   userForumToDisplay;
   showCommentForum = null;
-  threadComments = [];
+  threadComments: UserComment[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -49,7 +49,16 @@ export class ForumDetailsComponent implements OnInit {
   }
 
   addComment(comment) {
-    
+    const currentTime = new Date();
+    const date = (currentTime.toString()).substr(0, 15);
+    const currentUserName = this.userName;
+    const currentComment = new UserComment(comment, date, currentUserName)
+    this.threadComments.push(currentComment);
+    console.log(this.threadComments);
+    console.log(this.generalForums);
+    console.log(this.userForumToDisplay.comments);
+    this.userForumToDisplay.comments.push(this.threadComments);
+    this.showCommentForum = null;
   }
 
   showCommentForm() {
