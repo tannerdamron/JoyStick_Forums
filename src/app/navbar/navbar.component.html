@@ -11,13 +11,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
     </ul>
-    <div *ngIf="!isLoggedIn">
-      <button (click)="login()">Login</button>
-    </div>
-    <div *ngIf="isLoggedIn">
-      <p style="color:blue">{{userName}}</p>
-      <button (click)="logout()">Logout</button>
-    </div>
+    <button *ngIf="!isLoggedIn" (click)="login()">Login</button>
+      <p *ngIf="isLoggedIn" style="color:blue">Logged in as: {{userName}}</p>
+      <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
