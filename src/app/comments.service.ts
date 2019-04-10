@@ -13,4 +13,16 @@ export class CommentsService {
   getGeneralForumComments(threadKey: string) {
     return this.database.list(`generalForums/` + threadKey + `/comments`);
   }
+
+  getGameSpecificForumComments(threadKey: string) {
+    return this.database.list(`gameSpecificForums/` + threadKey + `/comments`);
+  }
+
+  getStudioForumsComments(threadKey: string) {
+    return this.database.list(`studioSpecificForums/` + threadKey + `/comments`);
+  }
+
+  getOffTopicForumComments(threadKey: string) {
+    return this.database.list(`offTopicForums/` + threadKey + `/comments`);
+  }
 }

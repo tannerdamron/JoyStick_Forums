@@ -50,21 +50,10 @@ export class ForumDetailsComponent implements OnInit {
       this.userForumSubject = urlParameters['subject'];
   });
     this.userForumToDisplay = this.userForumsService.getGeneralForumBySubject(this.userForumSubject);
-    console.log(this.userForumToDisplay);
     this.userCommentsToDisplay = this.userCommentsService.getGeneralForumComments(this.userForumSubject);
     this.userCommentsToDisplay.subscribe(currentComments => {
       this.comments = currentComments;
     })
-
-
-    // let objectOfComments = this.userCommentsService.getGeneralForumComments(this.userForumSubject);
-    // console.log(this.userCommentsToDisplay);
-    // let commentKeys = Object.keys(objectOfComments);
-    // console.log(commentKeys);
-    // this.userCommentsToDisplay = [];
-    // for (let currentComment in commentKeys) {
-    //   this.userCommentsToDisplay.push(objectOfComments[currentComment]);
-    // }
   }
 
   addComment(comment) {

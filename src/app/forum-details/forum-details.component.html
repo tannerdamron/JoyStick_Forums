@@ -5,14 +5,13 @@
     <p class="card-text">{{(userForumToDisplay | async)?.body}}</p>
     <p class="card-text">-{{(userForumToDisplay | async)?.dateCreated}}</p>
     <p class="card-text">posted by: {{(userForumToDisplay | async)?.userName}}</p>
-    <p>com - {{(userForumToDisplay | async)?.comments}}</p>
   </div>
 </div>
 <div *ngFor="let currentComment of comments" class="card">
   <div class="card-body">
     <p class="card-text">{{currentComment.comment}}</p>
-    <p class="card-text">{{currentComment.commentUserName}}</p>
-    <p class="card-text">{{currentComment.dateCommented}}</p>
+    <p class="card-text">posted by: {{currentComment.commentUserName}}</p>
+    <p class="card-text">-{{currentComment.dateCommented}}</p>
   </div>
 </div>
 <button *ngIf="isLoggedIn" class="newPostButton btn btn-info" (click)="showCommentForm()">Comment</button>
