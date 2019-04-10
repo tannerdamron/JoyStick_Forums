@@ -7,6 +7,7 @@ import { UserForumsService } from '../user-forums.service';
 import { FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AuthenticationService } from '../authentication/authentication.service';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-forum-details',
@@ -21,7 +22,6 @@ export class ForumDetailsComponent implements OnInit {
   userForumSubject: string;
   userForumToDisplay;
   showCommentForum = null;
-  threadComments: UserComment[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -52,12 +52,10 @@ export class ForumDetailsComponent implements OnInit {
     const currentTime = new Date();
     const date = (currentTime.toString()).substr(0, 15);
     const currentUserName = this.userName;
-    const currentComment = new UserComment(comment, date, currentUserName)
-    this.threadComments.push(currentComment);
-    console.log(this.threadComments);
-    console.log(this.generalForums);
-    console.log(this.userForumToDisplay.comments);
-    this.userForumToDisplay.comments.push(this.threadComments);
+    const currentComment: UserComment = new UserComment(comment, date, currentUserName);
+    const threadKey = this.userForumSubject;
+    const commentsRef = firebase.database().ref(`generalForums/${threadKey}/comments/`);
+    commentsRef.push(currentComment);
     this.showCommentForum = null;
   }
 

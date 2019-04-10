@@ -19,7 +19,6 @@ export class UserForumComponent implements OnInit {
   private isLoggedIn: Boolean;
   generalForums: FirebaseListObservable<any[]>;
   showAddForum = null;
-  userComment = [];
 
   constructor(private router: Router, private generalForumService: UserForumsService, private database: AngularFireDatabase, public authService: AuthenticationService) {
     this.generalForums = database.list('generalForums');
@@ -45,9 +44,7 @@ export class UserForumComponent implements OnInit {
     const currentTime = new Date();
     const date = (currentTime.toString()).substr(0, 15);
     const currentUserName = this.userName;
-    const testComment = new UserComment("comment", "username", "date")
-    this.userComment.push(testComment);
-    const newForum = new UserForum(title, subject, body, date, currentUserName, this.userComment);
+    const newForum = new UserForum(title, subject, body, date, currentUserName, []);
     this.generalForumService.addToGeneralForums(newForum);
     this.showAddForum = null;
   }
