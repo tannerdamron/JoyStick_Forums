@@ -4,17 +4,13 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 
 @Injectable()
 export class CommentsService {
-  comments: FirebaseListObservable<any[]>;
+  generalForumComments: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
-    this.comments = database.list('comments');
+    this.generalForumComments = database.list('generalForums/comments');
   }
 
-  getComments() {
-    return this.comments;
-  }
-
-  addCommentToThread(newComment: UserComment) {
-    this.comments.push(newComment);
+  getGeneralForumComments(userGameForumSubject: string) {
+    return this.database.object('generalForums/' + userGameForumSubject + '/comments');
   }
 }

@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { UserForum } from '../models/user-forum.model';
 import { UserComment } from '../models/user-comment.model';
 import { UserForumsService } from '../user-forums.service';
+import { CommentsService } from '../comments.service';
 import { FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AuthenticationService } from '../authentication/authentication.service';
@@ -13,7 +14,7 @@ import * as firebase from 'firebase/app';
   selector: 'app-forum-details',
   templateUrl: './forum-details.component.html',
   styleUrls: ['./forum-details.component.css'],
-  providers: [UserForumsService]
+  providers: [UserForumsService, CommentsService]
 })
 export class ForumDetailsComponent implements OnInit {
   generalForums: FirebaseListObservable<any[]>;
@@ -21,12 +22,14 @@ export class ForumDetailsComponent implements OnInit {
   private isLoggedIn: Boolean;
   userForumSubject: string;
   userForumToDisplay;
+  userCommentsToDisplay;
   showCommentForum = null;
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private userForumsService: UserForumsService,
+    private userCommentsService: CommentsService,
     private database: AngularFireDatabase,
     public authService: AuthenticationService
   ) {
@@ -46,6 +49,7 @@ export class ForumDetailsComponent implements OnInit {
       this.userForumSubject = urlParameters['subject'];
   });
     this.userForumToDisplay = this.userForumsService.getGeneralForumBySubject(this.userForumSubject);
+    this.userCommentsToDisplay = this.userCommentsService.getGeneralForumComments(this.userForumSubject);
   }
 
   addComment(comment) {
@@ -56,6 +60,7 @@ export class ForumDetailsComponent implements OnInit {
     const threadKey = this.userForumSubject;
     const commentsRef = firebase.database().ref(`generalForums/${threadKey}/comments/`);
     commentsRef.push(currentComment);
+    console.log(this.userCommentsToDisplay);
     this.showCommentForum = null;
   }
 
