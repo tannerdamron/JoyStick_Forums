@@ -46,6 +46,7 @@ export class OffTopicForumsComponent implements OnInit {
     const comments = [];
     const newForum = new UserForum(title, subject, body, date, currentUserName, comments);
     this.userOffTopicForumsService.addOffTopicForum(newForum);
+    this.userOffTopicForumsService.addToAllPosts(newForum);
     this.showAddForum = null;
   }
 

@@ -15,8 +15,7 @@
       <p *ngIf="isLoggedIn" style="color:lightblue">Logged in as: {{userName}}</p>
       <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keydown)="search($event)" required>
     </form>
   </div>
 </nav>
@@ -26,4 +25,12 @@
   <a style="color:red" routerLink="games">Specific Games Forums</a>
   <a style="color:yellow" routerLink="studios">Studio Specific Forums</a>
   <a style="color:violet" routerLink="offtopic">Off Topic Forums</a>
+</div>
+
+<div *ngFor="let post of posts">
+  <div id="post" class='card-body'>
+    <h3><em>{{post?.title}}</em></h3>
+    <p>Posted: {{post?.dateCreated}}</p>
+    <p>posted by: {{post?.userName}}</p>
+  </div>
 </div>

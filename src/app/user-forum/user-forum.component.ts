@@ -46,6 +46,7 @@ export class UserForumComponent implements OnInit {
     const currentUserName = this.userName;
     const newForum = new UserForum(title, subject, body, date, currentUserName, []);
     this.generalForumService.addToGeneralForums(newForum);
+    this.generalForumService.addToAllPosts(newForum);
     this.showAddForum = null;
   }
 

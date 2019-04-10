@@ -9,6 +9,7 @@ import { GameSpecificForumsDetailsComponent } from './game-specific-forums-detai
 import { OffTopicForumsComponent } from './off-topic-forums/off-topic-forums.component';
 import { OffTopicForumsDetailsComponent } from './off-topic-forums-details/off-topic-forums-details.component';
 import { StudioForumsDetailsComponent } from './studio-forums-details/studio-forums-details.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 // import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
@@ -47,6 +48,10 @@ const appRoutes: Routes = [
   {
     path: 'offTopicForums/:subject',
     component: OffTopicForumsDetailsComponent
+  },
+  {
+    path: 'searchresults',
+    component: SearchResultsComponent
   }
   // {
   //   path: 'admin',

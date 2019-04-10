@@ -15,7 +15,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 
 export class GamesForumsComponent implements OnInit {
   private userName: String;
-  private isLoggedIn: Boolean
+  private isLoggedIn: Boolean;
   gameSpecificForums: FirebaseListObservable<any[]>;
   showAddForum = null;
 
@@ -47,6 +47,7 @@ export class GamesForumsComponent implements OnInit {
     const comments = [];
     const newForum = new UserForum(title, subject, body, date, currentUserName, comments);
     this.userGameForumsService.addToGameSpecificForum(newForum);
+    this.userGameForumsService.addToAllPosts(newForum);
     this.showAddForum = null;
   }
 
