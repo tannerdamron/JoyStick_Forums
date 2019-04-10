@@ -17,6 +17,7 @@ export class UserForumsService {
     this.gameSpecificForums = database.list('gameSpecificForums');
     this.studioSpecificForums = database.list('studioSpecificForums');
   }
+  
 
   getStudioSpecificForums() {
     return this.studioSpecificForums;

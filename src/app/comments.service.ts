@@ -7,10 +7,10 @@ export class CommentsService {
   generalForumComments: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
-    this.generalForumComments = database.list('generalForums/comments');
+    
   }
 
-  getGeneralForumComments(userGameForumSubject: string) {
-    return this.database.object('generalForums/' + userGameForumSubject + '/comments');
+  getGeneralForumComments(threadKey: string) {
+    return this.database.list(`generalForums/` + threadKey + `/comments`);
   }
 }
