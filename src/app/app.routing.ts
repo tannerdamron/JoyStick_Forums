@@ -50,7 +50,7 @@ const appRoutes: Routes = [
     component: OffTopicForumsDetailsComponent
   },
   {
-    path: 'searchresults',
+    path: 'search',
     component: SearchResultsComponent
   }
   // {
