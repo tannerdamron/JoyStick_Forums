@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserForum } from './models/user-forum.model';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import * as firebase from 'firebase/app';
 
 @Injectable()
 export class UserForumsService {
@@ -10,8 +9,6 @@ export class UserForumsService {
   generalForums: FirebaseListObservable<any[]>;
   gameSpecificForums: FirebaseListObservable<any[]>;
   studioSpecificForums: FirebaseListObservable<any[]>;
-  allPosts: FirebaseListObservable<any[]>;
-  allPostsRef = firebase.database().ref(`allPosts`);
 
   constructor(private database: AngularFireDatabase) {
     this.adminForums = database.list('adminForums');
@@ -19,27 +16,8 @@ export class UserForumsService {
     this.generalForums = database.list('generalForums');
     this.gameSpecificForums = database.list('gameSpecificForums');
     this.studioSpecificForums = database.list('studioSpecificForums');
-    this.allPosts = database.list('allPosts');
   }
 
-  search(start, end): FirebaseListObservable<any> {
-    return this.database.list('/allPosts', {
-      query: {
-        orderByChild: 'title',
-        limitToFirst: 100,
-        startAt: start,
-        endAt: end
-      }
-    });
-  }
-
-  getAllPosts() {
-    return this.allPosts;
-  }
-
-  addToAllPosts(newForum: UserForum) {
-    this.allPosts.push(newForum);
-  }
   getStudioSpecificForums() {
     return this.studioSpecificForums;
   }

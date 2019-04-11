@@ -53,7 +53,7 @@ export class StudioForumsDetailsComponent implements OnInit {
     this.userCommentsToDisplay = this.userCommentsService.getStudioForumsComments(this.userForumSubject);
     this.userCommentsToDisplay.subscribe(currentComments => {
       this.comments = currentComments;
-    })
+    });
   }
 
   addComment(comment) {

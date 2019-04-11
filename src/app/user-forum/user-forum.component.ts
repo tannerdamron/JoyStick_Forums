@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { UserForumsService } from '../user-forums.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AuthenticationService } from '../authentication/authentication.service';
-import { UserComment } from '../models/user-comment.model';
 
 @Component({
   selector: 'app-user-forum',
@@ -46,7 +45,6 @@ export class UserForumComponent implements OnInit {
     const currentUserName = this.userName;
     const newForum = new UserForum(title, subject, body, date, currentUserName, []);
     this.generalForumService.addToGeneralForums(newForum);
-    this.generalForumService.addToAllPosts(newForum);
     this.showAddForum = null;
   }
 

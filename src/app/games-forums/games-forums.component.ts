@@ -47,7 +47,6 @@ export class GamesForumsComponent implements OnInit {
     const comments = [];
     const newForum = new UserForum(title, subject, body, date, currentUserName, comments);
     this.userGameForumsService.addToGameSpecificForum(newForum);
-    this.userGameForumsService.addToAllPosts(newForum);
     this.showAddForum = null;
   }
 

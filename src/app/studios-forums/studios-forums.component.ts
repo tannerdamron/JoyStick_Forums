@@ -20,6 +20,7 @@ export class StudiosForumsComponent implements OnInit {
   showAddForum = null;
 
   constructor(private router: Router, private studioSpecificForumsService: UserForumsService, private database: AngularFireDatabase, public authService: AuthenticationService) {
+    this.studioSpecificForums = database.list('studioSpecificForums');
     this.authService.user.subscribe(user => {
       if (user == null) {
         this.isLoggedIn = false;
@@ -46,7 +47,6 @@ export class StudiosForumsComponent implements OnInit {
     const comments = [];
     const newForum = new UserForum(title, subject, body, date, currentUserName, comments);
     this.studioSpecificForumsService.addToStudioSpecificForum(newForum);
-    this.studioSpecificForumsService.addToAllPosts(newForum);
     this.showAddForum = null;
   }
 

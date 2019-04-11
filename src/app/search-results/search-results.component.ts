@@ -4,8 +4,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { UserForumsService } from '../user-forums.service';
-import { FirebaseListObservable } from 'angularfire2/database';
-import { Subject } from 'rxjs/Subject';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-results',
@@ -14,16 +14,21 @@ import { Subject } from 'rxjs/Subject';
   providers: [UserForumsService]
 })
 export class SearchResultsComponent implements OnInit {
-  posts;
-  startAt = new Subject();
-  endAt = new Subject();
-  allPosts: FirebaseListObservable<any[]>;
+  gameSpecificForums: FirebaseListObservable<any[]>;
+  offTopicForums: FirebaseListObservable<any[]>;
+  studioSpecificForums: FirebaseListObservable<any[]>;
+  generalForums: FirebaseListObservable<any[]>;
+  allForums: FirebaseListObservable<any[]>;
   user: Observable<firebase.User>;
   private isLoggedIn: Boolean;
   private userName: String;
   open = false;
 
-  constructor(public afAuth: AngularFireAuth, public authService: AuthenticationService, private formsService: UserForumsService) {
+  constructor(public afAuth: AngularFireAuth, public authService: AuthenticationService, private forumsService: UserForumsService, private database: AngularFireDatabase, private router: Router) {
+    this.generalForums = database.list('generalForums');
+    this.offTopicForums = database.list('offTopicForums');
+    this.gameSpecificForums = database.list('gameSpecificForums');
+    this.studioSpecificForums = database.list('studioSpecificForums');
     this.user = afAuth.authState;
     this.authService.user.subscribe(user => {
       if (user == null) {
@@ -35,17 +40,27 @@ export class SearchResultsComponent implements OnInit {
     });
   }
 
-
-
   ngOnInit() {
-    this.allPosts = this.formsService.getAllPosts();
-    this.formsService.search(this.startAt, this.endAt).subscribe(posts => this.posts = posts)
+    this.gameSpecificForums = this.forumsService.getUserGameForums();
+    this.offTopicForums = this.forumsService.getOffTopicForums();
+    this.studioSpecificForums = this.forumsService.getStudioSpecificForums();
+    this.generalForums = this.forumsService.getGeneralForums();
   }
 
-  search($event) {
-    let q = $event.target.value;
-    this.startAt.next(q);
-    this.endAt.next(q+"\uf8ff");
+  goToGeneralDetailPage(clickedForum) {
+    this.router.navigate(['generalForums', clickedForum.$key]);
+  }
+
+  goToOffTopicDetailPage(clickedForum) {
+    this.router.navigate(['offTopicForums', clickedForum.$key]);
+  }
+
+  goToGameSpecificDetailPage(clickedForum) {
+    this.router.navigate(['gameSpecificForums', clickedForum.$key]);
+  }
+
+  goToStudioSpecificDetailPage(clickedForum) {
+    this.router.navigate(['studioSpecificForums', clickedForum.$key]);
   }
 
 }
