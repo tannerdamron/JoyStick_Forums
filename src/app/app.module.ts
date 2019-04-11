@@ -18,6 +18,7 @@ import { GameSpecificForumsDetailsComponent } from './game-specific-forums-detai
 import { OffTopicForumsDetailsComponent } from './off-topic-forums-details/off-topic-forums-details.component';
 import { StudioForumsDetailsComponent } from './studio-forums-details/studio-forums-details.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchPipe } from './search.pipe';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -39,7 +40,8 @@ export const firebaseConfig = {
     GameSpecificForumsDetailsComponent,
     OffTopicForumsDetailsComponent,
     StudioForumsDetailsComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

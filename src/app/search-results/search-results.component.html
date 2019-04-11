@@ -1,31 +1,30 @@
 <h1>Search all posts</h1>
 
-<input type="search" placeholder="Search" aria-label="Search" (keydown)="search($event)" required>
+<input type="search" placeholder="Search" aria-label="Search" #searchTerm required>
 
 
-<div *ngFor="let post of generalForums | async">
+<div *ngFor="let post of generalForums | async | searchPipe:searchTerm.value">
   <div (click)="goToGeneralDetailPage(post)" id="post" class='card-body'>
     <h3><em>{{post.title}}</em></h3>
     <p>Posted: {{post.dateCreated}}</p>
     <p>posted by: {{post.userName}}</p>
-    <p>{{post.$key}}</p>
   </div>
 </div>
-<div *ngFor="let post of offTopicForums | async">
+<div *ngFor="let post of offTopicForums | async | searchPipe:searchTerm.value">
   <div (click)="goToOffTopicDetailPage(post)" id="post" class='card-body'>
     <h3><em>{{post.title}}</em></h3>
     <p>Posted: {{post.dateCreated}}</p>
     <p>posted by: {{post.userName}}</p>
   </div>
 </div>
-<div *ngFor="let post of studioSpecificForums | async">
+<div *ngFor="let post of studioSpecificForums | async | searchPipe:searchTerm.value">
   <div (click)="goToStudioSpecificDetailPage(post)" id="post" class='card-body'>
     <h3><em>{{post.title}}</em></h3>
     <p>Posted: {{post.dateCreated}}</p>
     <p>posted by: {{post.userName}}</p>
   </div>
 </div>
-<div *ngFor="let post of gameSpecificForums | async">
+<div *ngFor="let post of gameSpecificForums | async | searchPipe:searchTerm.value">
   <div (click)="goToGameSpecificDetailPage(post)" id="post" class='card-body'>
     <h3><em>{{post.title}}</em></h3>
     <p>Posted: {{post.dateCreated}}</p>
