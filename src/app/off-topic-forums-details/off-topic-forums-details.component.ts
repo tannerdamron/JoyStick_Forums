@@ -54,7 +54,7 @@ export class OffTopicForumsDetailsComponent implements OnInit {
     this.userCommentsToDisplay = this.userCommentsService.getOffTopicForumComments(this.userForumSubject);
     this.userCommentsToDisplay.subscribe(currentComments => {
       this.comments = currentComments;
-    })
+    });
   }
 
   addComment(comment) {

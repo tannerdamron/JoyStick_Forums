@@ -44,3 +44,14 @@ body {
 .card {
   box-shadow: 2px 2px #888888;
 }
+
+/* Comments Styling */
+
+.commentBtn {
+  margin-top: 10px;
+  margin-left: 3%;
+}
+.comments {
+  margin-top: 20px;
+  margin-left: 3%;
+}

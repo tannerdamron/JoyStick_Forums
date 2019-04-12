@@ -7,14 +7,14 @@
     <p class="card-text">posted by: {{(userForumToDisplay | async)?.userName}}</p>
   </div>
 </div>
-<div *ngFor="let currentComment of comments" class="card">
+<div *ngFor="let currentComment of comments" class="comments card">
   <div class="card-body">
-    <p class="card-text">{{currentComment.comment}}</p>
-    <p class="card-text">posted by: {{currentComment.commentUserName}}</p>
+    <p class="card-text">- {{currentComment.comment}}</p>
+    <p class="card-text">commented by: {{currentComment.commentUserName}}</p>
     <p class="card-text">-{{currentComment.dateCommented}}</p>
   </div>
 </div>
-<button *ngIf="isLoggedIn" class="newPostButton btn btn-info" (click)="showCommentForm()">Comment</button>
+<button *ngIf="isLoggedIn" class="newPostButton btn btn-info commentBtn" (click)="showCommentForm()">Comment</button>
 <p *ngIf="!isLoggedIn">Please log in to make a comment</p>
 <div *ngIf="showCommentForum">
   <div class="card card-default">

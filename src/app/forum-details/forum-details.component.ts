@@ -58,7 +58,7 @@ export class ForumDetailsComponent implements OnInit {
 
   addComment(comment) {
     const currentTime = new Date();
-    const date = (currentTime.toString()).substr(0, 15);
+    const date = (currentTime.toString()).substr(0, 25);
     const currentUserName = this.userName;
     const currentComment: UserComment = new UserComment(comment, date, currentUserName);
     const threadKey = this.userForumSubject;
