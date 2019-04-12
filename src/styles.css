@@ -10,13 +10,14 @@ body {
   background-size: cover;
   position: relative;
   background-position: center center;
+  background-attachment: fixed;
 }
 
 /* Forum Posts Styling */
 
 #post {
   color: rgb(166, 171, 182);
-  margin: 5px 0 15px 0;
+  margin: 5px 5px 15px 0;
   box-shadow: 1px 2px #888888;
   border: 1px solid lightgrey;
   border-radius: 2%;
@@ -25,7 +26,6 @@ body {
 
 #post:hover {
   cursor: pointer;
-  border: 2px solid #F2F3F5;
   color: #F2F3F5;
   text-decoration: underline;
   text-shadow: .5px .5px black;
@@ -37,6 +37,16 @@ body {
 
 .card-body {
   padding: 10px 10px 10px 10px;
+}
+
+.newPostButton {
+  margin-top: 20px;
+}
+
+.forumHeader {
+  color: skyblue;
+  font-size: 50px;
+  text-shadow: 1px 1px black;
 }
 
 /* Forum Details Styling */
