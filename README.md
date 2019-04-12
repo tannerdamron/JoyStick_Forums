@@ -4,20 +4,26 @@
 #### A video game based forum web page
 
 ## Description
-This web page was created with Angular, and is a forum based web page for users to be able to look at and read forum posts. Also any user will be able to post a forum in any category, and search in general for any posts or search specifically in any page.
+This web page was created with Angular, and is a forum based web page for users to be able to look at and read forum posts. Also any user will be able to sign in and post a forum in any category or comment on any post. User can also search for any posts containing the search word.
 
 ### Firebase Live Link
-* > N/A (for the time being)
+* > https://joystick-forums.firebaseapp.com
 
 ## Specifications
 * User can click any category link to see all forum posts in that category
 * > Input: User clicks Off Topic Forums
 * > Output: Web page takes them to all forums within Off Topic Forums
-* User can add forum post to any category
+* User can sign in using google email
+* > Input: User clicks sign in button and uses google email
+* > Output: User is now signed in and can access making posts or comments on any thread
+* User can add forum post to any category if signed in
 * > Input: User clicks add forum inside Off Topic Forums, and fills in the fields
 * > Output: User added forum post is shown in list of all forum posts within Off Topic Forums category
-* User can search for forum posts within any category or in general discussion
-* > Input: User searches for "Pokemon" in General Discussion Forums
+* User can add comments to any post if signed in
+* > Input: User clicks add comment inside of any post
+* > Output: User can type in comment and post comment on thread
+* User can search for forum posts
+* > Input: User searches for "Pokemon"
 * > Output: All forum posts containing the word "Pokemon will show up"
 
 ### Setup Instructions
@@ -41,7 +47,7 @@ Download Node.js
 * Enter "$ ng serve --open" in root directory in terminal to open a local host of web page
 
 ## Known Bugs
-Project is half finished, user cannot post in any place other than off topic, general, and admin. User cannot see any details of posts just the title links
+Search is really slow
 
 ### Languages/Libraries Used
 * HTML

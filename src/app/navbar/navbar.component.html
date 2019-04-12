@@ -12,7 +12,7 @@
     <ul class="navbar-nav mr-auto">
     </ul>
     <button class="logButton btn btn-sm btn-info" *ngIf="!isLoggedIn" (click)="login()">Login</button>
-      <p id="loginName" *ngIf="isLoggedIn" style="color:lightblue">Logged in as: {{userName}}</p>
+      <p class="loginName" *ngIf="isLoggedIn" style="color:lightblue">Logged in as: {{userName}}</p>
       <button class="logButton btn btn-sm btn-info" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
     <button routerLink="search" class="searchBtn btn btn-sm btn-info">Search</button>
   </div>

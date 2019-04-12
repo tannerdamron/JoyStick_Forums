@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-6">
     <button *ngIf="isLoggedIn" class="newPostButton btn btn-info" (click)="showAddForumForm()">Post in Game Specific Discussion</button>
-    <p *ngIf="!isLoggedIn">Please log in to make a post</p>
+    <h5 class="notLoggedIn" *ngIf="!isLoggedIn">Please log in to make a post</h5>
   </div>
 </div>
 <div id="newForumForm" *ngIf="showAddForum">
