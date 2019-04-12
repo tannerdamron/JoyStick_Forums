@@ -23,7 +23,6 @@ export class ForumDetailsComponent implements OnInit {
   userForumSubject: string;
   userForumToDisplay;
   userCommentsToDisplay;
-  comments = [];
   showCommentForum = null;
 
   constructor(
@@ -34,7 +33,7 @@ export class ForumDetailsComponent implements OnInit {
     private database: AngularFireDatabase,
     public authService: AuthenticationService
   ) {
-    this.generalForums = database.list('generalForums/comments');
+    this.generalForums = database.list('generalForums');
     this.authService.user.subscribe(user => {
       if (user == null) {
         this.isLoggedIn = false;
@@ -51,9 +50,6 @@ export class ForumDetailsComponent implements OnInit {
   });
     this.userForumToDisplay = this.userForumsService.getGeneralForumBySubject(this.userForumSubject);
     this.userCommentsToDisplay = this.userCommentsService.getGeneralForumComments(this.userForumSubject);
-    this.userCommentsToDisplay.subscribe(currentComments => {
-      this.comments = currentComments;
-    })
   }
 
   addComment(comment) {
@@ -64,6 +60,7 @@ export class ForumDetailsComponent implements OnInit {
     const threadKey = this.userForumSubject;
     const commentsRef = firebase.database().ref(`generalForums/${threadKey}/comments/`);
     commentsRef.push(currentComment);
+    console.log(this.userCommentsToDisplay);
     this.showCommentForum = null;
   }
 
