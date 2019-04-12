@@ -7,7 +7,7 @@
     <p class="card-text">posted by: {{(userForumToDisplay | async)?.userName}}</p>
   </div>
 </div>
-<div *ngFor="let currentComment of comments" class="card">
+<div *ngFor="let currentComment of comments" class="comments card">
   <div class="card-body">
     <p class="card-text">{{currentComment.comment}}</p>
     <p class="card-text">posted by: {{currentComment.commentUserName}}</p>
