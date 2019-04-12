@@ -11,20 +11,20 @@ This web page was created with Angular, and is a forum based web page for users 
 
 ## Specifications
 * User can click any category link to see all forum posts in that category
-* > Input: User clicks Off Topic Forums
-* > Output: Web page takes them to all forums within Off Topic Forums
+> Input: User clicks Off Topic Forums
+> Output: Web page takes them to all forums within Off Topic Forums
 * User can sign in using google email
-* > Input: User clicks sign in button and uses google email
-* > Output: User is now signed in and can access making posts or comments on any thread
+> Input: User clicks sign in button and uses google email
+> Output: User is now signed in and can access making posts or comments on any thread
 * User can add forum post to any category if signed in
-* > Input: User clicks add forum inside Off Topic Forums, and fills in the fields
-* > Output: User added forum post is shown in list of all forum posts within Off Topic Forums category
+> Input: User clicks add forum inside Off Topic Forums, and fills in the fields
+> Output: User added forum post is shown in list of all forum posts within Off Topic Forums category
 * User can add comments to any post if signed in
-* > Input: User clicks add comment inside of any post
-* > Output: User can type in comment and post comment on thread
+> Input: User clicks add comment inside of any post
+> Output: User can type in comment and post comment on thread
 * User can search for forum posts
-* > Input: User searches for "Pokemon"
-* > Output: All forum posts containing the word "Pokemon will show up"
+> Input: User searches for "Pokemon"
+> Output: All forum posts containing the word "Pokemon will show up"
 
 ### Setup Instructions
 Download Node.js
