@@ -70,3 +70,11 @@ body {
   color: red;
   margin-top: 15px;
 }
+
+/* Media Query for Phones */
+
+@media only screen and (max-width: 100px) {
+  [class*="col-"] {
+    width: 100%;
+  }
+}
