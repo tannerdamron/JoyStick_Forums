@@ -61,7 +61,7 @@ Search is really slow
 * Firebase
 
 ### GitHub Repository Link
-https://github.com/tannerdamron/Video_Game_Forums
+https://github.com/tannerdamron/JoyStick_Forums
 
 ### Support or Contact
 * For any questions or suggestions email me at tanner.mdamron@gmail.com
