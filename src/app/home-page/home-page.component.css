@@ -1,105 +1,47 @@
+
 .jumbotron {
   opacity: 0.5;
   color: black;
-  
   font-family:'Roboto',sans-serif;
   background-image: url('https://static.tumblr.com/9bb2d561662dfffc230d85232a51cbea/9hifxkq/XB9nimlot/tumblr_static_3eaklsueo604w4sgo444skg0.gif')
+}
+
+.forumsButtons {
+  display: inline-block;
+  padding: 0.46em 1.6em;
+  border: 0.1em solid #000000;
+  margin: 10px 20px 10px 20%;
+  border-radius: 10%;
+  width: 40%;
+  font-family: 'Roboto',sans-serif;
+  font-weight:1000;
+  background-color:#FFFFFF;
+  text-align: center;
+  text-shadow: .5px .5px black;
+  transition: all 0.15s;
+  background-image: url('https://static.tumblr.com/9bb2d561662dfffc230d85232a51cbea/9hifxkq/XB9nimlot/tumblr_static_3eaklsueo604w4sgo444skg0.gif')
+}
+
+.forumsButtons:hover {
+  text-shadow: 0 0 2em rgba(255,255,255,1);
+  color: black;
+  border-color: skyblue;
 }
 
 #generalForumsButton {
-  display:inline-block;
-  padding:0.46em 1.6em;
-  border:0.1em solid #000000;
-  margin:10px 20px 10px 20%;
-  border-radius:40%;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-family:'Roboto',sans-serif;
-  font-weight:1000;
   color:blue;
-  background-color:#FFFFFF;
-  text-align:center;
-  text-shadow: .5px .5px black;
-  transition: all 0.15s;
-  background-image: url('https://static.tumblr.com/9bb2d561662dfffc230d85232a51cbea/9hifxkq/XB9nimlot/tumblr_static_3eaklsueo604w4sgo444skg0.gif')
-}
-
-#generalForumsButton:hover {
-  text-shadow: 0 0 2em rgba(255,255,255,1);
-  color: black;
-  border-color: skyblue;
 }
 
 #studioForumsButton {
-  display:inline-block;
-  padding:0.46em 1.6em;
-  border:0.1em solid #000000;
-  margin:10px 20px 10px 20%;
-  border-radius:40%;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-family:'Roboto',sans-serif;
-  font-weight:1000;
   color: rgb(68, 170, 68);
-  background-color:#FFFFFF;
-  text-align:center;
-  text-shadow: .5px .5px black;
-  transition: all 0.15s;
-  background-image: url('https://static.tumblr.com/9bb2d561662dfffc230d85232a51cbea/9hifxkq/XB9nimlot/tumblr_static_3eaklsueo604w4sgo444skg0.gif')
-}
-
-#studioForumsButton:hover {
-  text-shadow: 0 0 2em rgba(255,255,255,1);
-  color: black;
-  border-color: skyblue;
 }
 
 #gameSpecificForumsButton {
-  display:inline-block;
-  padding:0.46em 1.6em;
-  border:0.1em solid #000000;
-  margin:10px 20px 10px 20%;
-  border-radius:40%;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-family:'Roboto',sans-serif;
-  font-weight:1000;
   color: red;
-  background-color:#FFFFFF;
-  text-align:center;
-  text-shadow: .5px .5px black;
-  transition: all 0.15s;
-  background-image: url('https://static.tumblr.com/9bb2d561662dfffc230d85232a51cbea/9hifxkq/XB9nimlot/tumblr_static_3eaklsueo604w4sgo444skg0.gif')
-}
-
-#gameSpecificForumsButton:hover {
-  text-shadow: 0 0 2em rgba(255,255,255,1);
-  color: black;
-  border-color: skyblue;
 }
 
 #offtopicForumsButton {
-  display:inline-block;
-  padding:0.46em 1.6em;
-  border:0.1em solid #000000;
-  margin:10px 20px 10px 20%;
-  border-radius:40%;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-family:'Roboto',sans-serif;
-  font-weight:1000;
   color: violet;
-  background-color:#FFFFFF;
-  text-align:center;
-  text-shadow: .5px .5px black;
-  transition: all 0.15s;
-  background-image: url('https://static.tumblr.com/9bb2d561662dfffc230d85232a51cbea/9hifxkq/XB9nimlot/tumblr_static_3eaklsueo604w4sgo444skg0.gif')
-}
-
-#offtopicForumsButton:hover {
-  text-shadow: 0 0 2em rgba(255,255,255,1);
-  color: black;
-  border-color: skyblue;
 }
 
 .bouncy {

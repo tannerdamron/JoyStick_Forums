@@ -23,6 +23,7 @@ export class ForumDetailsComponent implements OnInit {
   userForumSubject: string;
   userForumToDisplay;
   userCommentsToDisplay;
+  comments = [];
   showCommentForum = null;
 
   constructor(
@@ -50,6 +51,9 @@ export class ForumDetailsComponent implements OnInit {
   });
     this.userForumToDisplay = this.userForumsService.getGeneralForumBySubject(this.userForumSubject);
     this.userCommentsToDisplay = this.userCommentsService.getGeneralForumComments(this.userForumSubject);
+    this.userCommentsToDisplay.subscribe(currentComments => {
+      this.comments = currentComments;
+    });
   }
 
   addComment(comment) {

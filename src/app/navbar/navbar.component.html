@@ -11,10 +11,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
     </ul>
-    <button *ngIf="!isLoggedIn" (click)="login()">Login</button>
-      <p *ngIf="isLoggedIn" style="color:lightblue">Logged in as: {{userName}}</p>
-      <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
-    <button routerLink="search" class="btn btn-md btn-info">Search</button>
+    <button class="logButton btn btn-sm btn-info" *ngIf="!isLoggedIn" (click)="login()">Login</button>
+      <p id="loginName" *ngIf="isLoggedIn" style="color:lightblue">Logged in as: {{userName}}</p>
+      <button class="logButton btn btn-sm btn-info" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+    <button routerLink="search" class="searchBtn btn btn-sm btn-info">Search</button>
   </div>
 </nav>
 

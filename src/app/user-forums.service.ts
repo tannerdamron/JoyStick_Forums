@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserForum } from './models/user-forum.model';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { OffTopicForumsDetailsComponent } from './off-topic-forums-details/off-topic-forums-details.component';
 
 @Injectable()
 export class UserForumsService {
@@ -51,7 +52,7 @@ export class UserForumsService {
   }
 
   getGeneralForumBySubject(userForumSubject: string) {
-    return this.database.object('generalForums/' + userForumSubject)
+    return this.database.object('generalForums/' + userForumSubject);
   }
 
   getOffTopicForums() {
